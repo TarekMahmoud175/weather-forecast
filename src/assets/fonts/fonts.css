@@ -1,0 +1,22 @@
+/* poppins*/
+@font-face {
+    font-family: "poppins-Bold";
+    src: url("./Poppins-Bold.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "poppins-Light";
+    src: url("./Poppins-Light.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "poppins-Medium";
+    src: url("./Poppins-Medium.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "poppins-Regular";
+    src: url("./Poppins-Regular.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "poppins-SemiBold";
+    src: url("./Poppins-SemiBold.ttf") format("truetype");
+  }
+  
