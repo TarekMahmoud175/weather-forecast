@@ -1,8 +1,10 @@
 @import "./assets/fonts/fonts.css";
+@import "bootstrap/dist/css/bootstrap.min.css";
 
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
+  /* background: linear-gradient(to left,var(--clr-white), var(--clr-secondary)); */
 }
 
 :root {
@@ -19,10 +21,7 @@ body {
   --clr-black: #000000;
   --clr-secondary: #ccfff2;
   --clr-primary: #00fcbc;
-  --clr-green: #239c78;
-  --clr-lightGrey: #e5e5e5;
-  --clr-grey: #707070;
-  --clr-darkGrey: #2f2f2f;
+  --clr-darkGreen: #239c78;
 
   /* font sizes */
   --fs-14: clamp(0.8rem, 0.729vw, 16px);

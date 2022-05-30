@@ -1,0 +1,34 @@
+.container {
+  background-color: var(--clr-primary);
+  border-radius: 20px;
+  text-align: center;
+}
+
+.today {
+  font-family: var(--ff-poppinsBold) !important;
+  font-size: var(--fs-48) !important;
+  color: var(--clr-white) !important;
+}
+
+.degree {
+  font-family: var(--ff-poppinsMedium) !important;
+  font-size: var(--fs-60) !important;
+  color: var(--clr-white) !important;
+}
+
+.status {
+  font-family: var(--ff-poppinsMedium) !important;
+  font-size: var(--fs-40) !important;
+  color: var(--clr-white) !important;
+}
+
+.icon {
+  width: clamp(440px, 23.177vw, 460px);
+  height: clamp(140px, 22.5vh, 180px);
+}
+
+.highLowText {
+  font-family: var(--ff-poppinsMedium) !important;
+  font-size: var(--fs-36) !important;
+  color: var(--clr-white) !important;
+}
