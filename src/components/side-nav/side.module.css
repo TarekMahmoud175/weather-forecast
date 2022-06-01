@@ -1,0 +1,44 @@
+.mainContainer {
+  background: var(--clr-gredient);
+  min-height: 100vh;
+  height: 100%;
+}
+.input {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: none;
+  padding-block: 10px;
+  padding-inline-start: 15px;
+  font-family: var(--ff-poppinsRegular);
+}
+.input:focus {
+  outline: none;
+}
+.btn {
+  background-color: var(--clr-secondary);
+  border: none;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  color: var(--clr-white);
+  padding-block: 10px;
+  padding-inline: 15px;
+  font-family: var(--ff-poppinsBold);
+}
+
+.townText {
+  font-size: var(--fs-26) !important;
+  font-family: var(--ff-poppinsBold) !important;
+  color: var(--clr-white) !important;
+}
+
+.hourText {
+  font-size: var(--fs-64) !important;
+  font-family: var(--ff-poppinsRegular) !important;
+  color: var(--clr-white) !important;
+}
+
+.dateText {
+  font-size: var(--fs-26) !important;
+  font-family: var(--ff-poppinsRegular) !important;
+  color: var(--clr-white) !important;
+}

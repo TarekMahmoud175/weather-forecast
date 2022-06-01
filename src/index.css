@@ -4,7 +4,7 @@
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  /* background: linear-gradient(to left,var(--clr-white), var(--clr-secondary)); */
+  overflow-x: hidden;
 }
 
 :root {
@@ -19,9 +19,9 @@ body {
   /* colors */
   --clr-white: #ffffff;
   --clr-black: #000000;
-  --clr-secondary: #ccfff2;
-  --clr-primary: #00fcbc;
-  --clr-darkGreen: #239c78;
+  --clr-secondary: #00313a;
+  --clr-primary: #00d4ff;
+  --clr-gredient: linear-gradient(to bottom, #00d4ff, #00313aff 100%);
 
   /* font sizes */
   --fs-14: clamp(0.8rem, 0.729vw, 16px);

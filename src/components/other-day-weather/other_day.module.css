@@ -1,0 +1,21 @@
+.mainContainer {
+  background: var(--clr-gredient);
+  border-radius: 20px;
+  width: fit-content;
+}
+.dayText {
+  font-family: var(--ff-poppinsBold) !important;
+  font-size: var(--fs-36) !important;
+  color: var(--clr-white) !important;
+}
+
+.weatherIcon {
+  width: clamp(155px, 8.229vw, 165px);
+  height: clamp(140px,13.14vh,150vh);
+}
+
+.tempText {
+  font-family: var(--ff-poppinsMedium) !important;
+  font-size: var(--fs-36) !important;
+  color: var(--clr-white) !important;
+}
