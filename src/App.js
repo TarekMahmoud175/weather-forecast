@@ -14,7 +14,7 @@ function App() {
             <SideNav></SideNav>
           </Col>
           <Col md={9}>
-            <Graph />
+            <Graph />    
           </Col>
           {/* <Row>
           <Col md={10}>
