@@ -2,6 +2,7 @@
   background: var(--clr-gredient);
   min-height: 100vh;
   height: 100%;
+  width: fit-content;
 }
 .input {
   border-top-left-radius: 10px;

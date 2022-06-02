@@ -1,5 +1,6 @@
 import { Col, Row } from "react-bootstrap";
 import "./App.css";
+import Graph from "./components/d3-graph";
 import OtherDayWeather from "./components/other-day-weather";
 import SideNav from "./components/side-nav";
 import TodayWeather from "./components/today-weather";
@@ -9,7 +10,12 @@ function App() {
     <>
       <div className="container-fluid p-0 m-0">
         <Row>
-          <Col md={3}> <SideNav></SideNav></Col>
+          <Col md={3}>
+            <SideNav></SideNav>
+          </Col>
+          <Col md={9}>
+            <Graph />
+          </Col>
           {/* <Row>
           <Col md={10}>
             <TodayWeather />
