@@ -3,8 +3,9 @@
   display: flex;
   justify-content: space-evenly;
   margin: auto;
-  height: 200px;
-  border: 2px solid var(--clr-primary);
+  height: 500px;
+  /* border: 2px solid var(--clr-primary); */
+  overflow: visible;
 }
 
 
