@@ -6,12 +6,13 @@ import rains from "../assets/icons/rains.svg";
 import heavyRains from "../assets/icons/heavyRains.svg";
 
 const Images = {
-  sunny: sunny,
-  cloudySun: cloudySunny,
-  cloudy: cloudy,
-  thunders: thunders,
-  rains: rains,
-  heavyRains: heavyRains,
+  Sunny: sunny,
+  Clear: sunny,
+  "Partly cloudy": cloudySunny,
+  Cloudy: cloudy,
+  Thunders: thunders,
+  "light rain": rains,
+  "heavy rain": heavyRains,
 };
 
 export default Images;

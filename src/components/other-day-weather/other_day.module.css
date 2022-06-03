@@ -1,7 +1,7 @@
 .mainContainer {
   background: var(--clr-gredient);
   border-radius: 20px;
-  width: fit-content;
+  /* width: fit-content; */
 }
 .dayText {
   font-family: var(--ff-poppinsBold) !important;
@@ -10,7 +10,7 @@
 }
 
 .weatherIcon {
-  width: clamp(155px, 8.229vw, 165px);
+  width: clamp(120px, 8.229vw, 165px);
   height: clamp(140px,13.14vh,150vh);
 }
 
