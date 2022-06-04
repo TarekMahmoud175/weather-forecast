@@ -44,6 +44,8 @@ const Landing = () => {
 
       WeatherServices.getLocalWeather(requestLocation, num_of_days, show_map)
         .then((res) => {
+          console.log(res);
+
           settodayWeather(res?.data?.weather[0]);
           setcurrentWeatherCondition(res?.data?.current_condition[0]);
           let nextDaysWeather = res?.data?.weather.filter((x, i) => i !== 0);

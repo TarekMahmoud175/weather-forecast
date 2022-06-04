@@ -7,17 +7,23 @@ import Graph from "../components/d3-graph";
 import { WeatherServices } from "../apis/Services/WeatherServices";
 import ErrorMsg from "../components/ErrorMsg";
 import { ClipLoader } from "react-spinners";
+import Text from "../components/Text";
 
 const CityWeather = ({ match }) => {
+  const [cityFound, setcityFound] = useState(null);
   const [forecastResponse, setforecastResponse] = useState(null);
   const [todayWeather, settodayWeather] = useState(null);
   const [currentWeatherCondition, setcurrentWeatherCondition] = useState(null);
   const [graphData, setgraphData] = useState(null);
-  const [err, seterr] = useState(null);
+  const [Error, setError] = useState(null);
   const [isLoading, setisLoading] = useState(false);
 
   useEffect(() => {
-    seterr(null);
+    setError(null);
+    setcityFound(null);
+    settodayWeather(null);
+    setcurrentWeatherCondition(null);
+    setforecastResponse(null);
     setgraphData(null);
     setisLoading(true);
 
@@ -27,11 +33,12 @@ const CityWeather = ({ match }) => {
 
     WeatherServices.getLocalWeather(requestLocation, num_of_days, show_map)
       .then((res) => {
+        console.log(res)
         if ("error" in res?.data) {
-          seterr(res?.data?.error?.[0]?.msg);
+          setError(res?.data?.error?.[0]?.msg);
           return;
         }
-
+        setcityFound(res?.data?.request?.[0]?.query);
         setgraphData(res?.data?.weather);
         settodayWeather(res?.data?.weather[0]);
         setcurrentWeatherCondition(res?.data?.current_condition[0]);
@@ -50,8 +57,15 @@ const CityWeather = ({ match }) => {
     <Container>
       {!isLoading ? (
         <>
-          {!err ? (
+          {!Error ? (
             <>
+              <Row>
+                <div className="col-12 mt-5">
+                  <Text className={`${Styles.foundedCity}`} dontWrap={false}>
+                    {cityFound}
+                  </Text>
+                </div>
+              </Row>
               <Row>
                 <div className="col-12 mt-5 mb-3">
                   <TodayWeather
@@ -107,3 +121,11 @@ const CityWeather = ({ match }) => {
 };
 
 export default CityWeather;
+
+const Styles = {
+  foundedCity: {
+    fontSize: "var(--fs-20)",
+    fontFamily: "var(--ff-poppinsSemiBold)",
+    color: "var(--clr-secondary)",
+  },
+};
