@@ -1,10 +1,9 @@
 import React from "react";
 import Styles from "./graph.module.css";
-import * as d3 from "https://cdn.skypack.dev/d3@7";
-import "https://cdn.skypack.dev/d3-scale@4";
+import * as d3 from "d3";
+import "d3-scale";
 
 const Graph = ({ width, height, data }) => {
-
   const drawChart = (element) => {
     let temps_array = data.map((x) => x.avgtempC);
     const xScale = d3
@@ -43,7 +42,7 @@ const Graph = ({ width, height, data }) => {
         .selectAll("g")
         .selectAll("text")
         .classed("xAxis", true)
-        .attr("font-size", "15px")
+        .attr("font-size", "10px")
         .attr("font-Family", "var(--ff-poppinsRegular)")
         .attr("fill", "var(--clr-black)");
     };

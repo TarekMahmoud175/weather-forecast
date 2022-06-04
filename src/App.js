@@ -7,7 +7,7 @@ import Router from "./router";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="/">
         <div className="container-fluid p-0 m-0">
           <Row>
             <div className="col-md-3">
