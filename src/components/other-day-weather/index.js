@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Text from "../Text";
 import Styles from "./other_day.module.css";
 import Images from "../../constants/Images";
-import { WeatherServices } from "../../apis/Services/WeatherServices";
 import moment from "moment";
 
 const OtherDayWeather = ({ weatherobj }) => {

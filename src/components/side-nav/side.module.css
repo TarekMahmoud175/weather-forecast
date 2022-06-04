@@ -2,6 +2,12 @@
   background: var(--clr-gredient);
   min-height: 100vh;
   height: 100%;
+  display: block !important;
+}
+.closebtn{
+  background-color: var(--clr-secondary);
+  border:none;
+  border-radius: 50%;
 }
 .input {
   border-top-left-radius: 10px;

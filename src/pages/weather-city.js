@@ -6,6 +6,7 @@ import OtherDayWeather from "../components/other-day-weather";
 import Graph from "../components/d3-graph";
 import { WeatherServices } from "../apis/Services/WeatherServices";
 import ErrorMsg from "../components/ErrorMsg";
+import { ClipLoader } from "react-spinners";
 
 const CityWeather = ({ match }) => {
   const [forecastResponse, setforecastResponse] = useState(null);
@@ -13,10 +14,12 @@ const CityWeather = ({ match }) => {
   const [currentWeatherCondition, setcurrentWeatherCondition] = useState(null);
   const [graphData, setgraphData] = useState(null);
   const [err, seterr] = useState(null);
+  const [isLoading, setisLoading] = useState(false);
 
   useEffect(() => {
     seterr(null);
     setgraphData(null);
+    setisLoading(true);
 
     let requestLocation = match.params.location;
     let num_of_days = 5;
@@ -37,51 +40,67 @@ const CityWeather = ({ match }) => {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        setisLoading(false);
       });
-      
   }, [match]);
 
   return (
     <Container>
-      {!err ? (
+      {!isLoading ? (
         <>
-          <Row>
-            <div className="col-12 mt-5 mb-3">
-              <TodayWeather
-                weatherobj={todayWeather}
-                weatherCondition={currentWeatherCondition}
-              />
-            </div>
-          </Row>
+          {!err ? (
+            <>
+              <Row>
+                <div className="col-12 mt-5 mb-3">
+                  <TodayWeather
+                    weatherobj={todayWeather}
+                    weatherCondition={currentWeatherCondition}
+                  />
+                </div>
+              </Row>
 
-          <Row>
-            {forecastResponse?.map((forcastedDay, index) => (
-              <div
-                className="col-md-3 mt-3 mb-2"
-                key={forcastedDay.date + "  " + index}
-              >
-                <OtherDayWeather
-                  weatherobj={forcastedDay}
-                  location={match.params.location}
-                />
-              </div>
-            ))}
-          </Row>
+              <Row>
+                {forecastResponse?.map((forcastedDay, index) => (
+                  <div
+                    className="col-md-3 mt-3 mb-2"
+                    key={forcastedDay.date + "  " + index}
+                  >
+                    <OtherDayWeather
+                      weatherobj={forcastedDay}
+                      location={match.params.location}
+                    />
+                  </div>
+                ))}
+              </Row>
 
-          <Row>
-            <div className="col-12 my-4">
-              {graphData ? (
-                <Graph
-                  width={window.innerWidth * 0.5}
-                  height={window.innerHeight * 0.4}
-                  data={graphData}
-                />
-              ) : null}
-            </div>
-          </Row>
+              <Row>
+                <div className="col-12 my-4">
+                  {graphData ? (
+                    <Graph
+                      width={window.innerWidth * 0.5}
+                      height={window.innerHeight * 0.4}
+                      data={graphData}
+                    />
+                  ) : null}
+                </div>
+              </Row>
+            </>
+          ) : (
+            <ErrorMsg msg={"No result found"} />
+          )}
         </>
       ) : (
-        <ErrorMsg msg={"No result found"} />
+        <Row className="justify-content-center mt-5">
+          <div className="col-md-6">
+            <ClipLoader
+              color={"var(--clr-secondary)"}
+              loading={isLoading}
+              size={200}
+            />
+          </div>
+        </Row>
       )}
     </Container>
   );

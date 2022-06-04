@@ -4,7 +4,7 @@ import NotFound from "./pages/404";
 import Landing from "./pages/landing";
 import CityWeather from "./pages/weather-city";
 
-const Pages = ({ state }) => (
+const Pages = () => (
   <Switch>
     <Route exact path="/city/:location" component={CityWeather} />
     <Route exact path="/" component={Landing} />
