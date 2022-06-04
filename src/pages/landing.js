@@ -4,6 +4,7 @@ import { Row } from "react-bootstrap";
 import TodayWeather from "../components/today-weather";
 import OtherDayWeather from "../components/other-day-weather";
 import { WeatherServices } from "../apis/Services/WeatherServices";
+import ErrorMsg from "../components/ErrorMsg";
 
 const Landing = () => {
   const [longitude, setlongitude] = useState(null);
@@ -53,28 +54,34 @@ const Landing = () => {
 
   return (
     <Container>
-      <Row>
-        <div className="col-12 mt-5 mb-3">
-          <TodayWeather
-            weatherobj={todayWeather}
-            weatherCondition={currentWeatherCondition}
-          />
-        </div>
-      </Row>
+      {longitude && latitude ? (
+        <>
+          <Row>
+            <div className="col-12 mt-5 mb-3">
+              <TodayWeather
+                weatherobj={todayWeather}
+                weatherCondition={currentWeatherCondition}
+              />
+            </div>
+          </Row>
 
-      <Row>
-        {forecastResponse?.map((forcastedDay, index) => (
-          <div
-            className="col-md-3 mt-3 mb-2"
-            key={forcastedDay.date + "  " + index}
-          >
-            <OtherDayWeather
-              weatherobj={forcastedDay}
-              location={`${latitude},${longitude}`}
-            />
-          </div>
-        ))}
-      </Row>
+          <Row>
+            {forecastResponse?.map((forcastedDay, index) => (
+              <div
+                className="col-md-3 mt-3 mb-2"
+                key={forcastedDay.date + "  " + index}
+              >
+                <OtherDayWeather
+                  weatherobj={forcastedDay}
+                  location={`${latitude},${longitude}`}
+                />
+              </div>
+            ))}
+          </Row>
+        </>
+      ) : (
+        <ErrorMsg msg="Please allow us to access your location so we can help you" />
+      )}
     </Container>
   );
 };

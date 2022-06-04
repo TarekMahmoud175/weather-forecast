@@ -13,6 +13,7 @@ const Images = {
   Thunders: thunders,
   "light rain": rains,
   "heavy rain": heavyRains,
+  "Patchy rain possible": rains,
 };
 
 export default Images;

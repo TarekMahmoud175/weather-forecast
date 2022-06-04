@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Text from "../Text";
 import Styles from "./side.module.css";
 import moment from "moment";
+import { useHistory } from "react-router-dom";
 
 const SideNav = () => {
   const [hour, sethour] = useState(null);
@@ -12,8 +13,18 @@ const SideNav = () => {
   }, [moment]);
 
   useEffect(() => {
-    setInterval(() => sethour(moment().format("hh:mm a")), 60000);
-  },[]);
+    setInterval(() => sethour(moment().format("hh:mm a")), 10000);
+  }, []);
+
+  const history = useHistory();
+  const [searchValue, setsearchValue] = useState("");
+
+  const handleSearchClick = () => {
+    if (searchValue === "") return;
+    else {
+      history.push(`/city/${searchValue}`);
+    }
+  };
 
   return (
     <div className={`${Styles.mainContainer} p-4 text-center`}>
@@ -25,8 +36,11 @@ const SideNav = () => {
           className={`${Styles.input}`}
           type="text"
           placeholder="Search for cities"
+          onChange={(e) => setsearchValue(e.target.value)}
         />
-        <button className={`${Styles.btn}`}>search</button>
+        <button className={`${Styles.btn}`} onClick={handleSearchClick}>
+          search
+        </button>
       </div>
       {/* town */}
       <Text className={`${Styles.townText} my-5`} dontWrap={false}>

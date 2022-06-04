@@ -5,20 +5,18 @@ import Landing from "./pages/landing";
 import CityWeather from "./pages/weather-city";
 
 const Pages = ({ state }) => (
-  <>
-    <Switch>
-      <Route exact path="/" component={Landing} />
-      <Route exact path="/city/:location" component={CityWeather} />
-      <Route exact path="*" component={NotFound} />
-    </Switch>
-  </>
+  <Switch>
+    <Route exact path="/city/:location" component={CityWeather} />
+    <Route exact path="/" component={Landing} />
+    <Route exact path="*" component={NotFound} />
+  </Switch>
 );
 
 const Router = () => {
   return (
-    <BrowserRouter basename="/">
-      <Pages />
-    </BrowserRouter>
+    // <BrowserRouter basename="/">
+    <Pages />
+    // </BrowserRouter>
   );
 };
 

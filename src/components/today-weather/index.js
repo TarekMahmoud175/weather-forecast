@@ -13,7 +13,7 @@ const TodayWeather = ({ weatherobj, weatherCondition }) => {
           <Text className={`${Styles.degree} my-3`}>
             {weatherCondition?.temp_C}° C
           </Text>
-          <Text className={`${Styles.status} my-3`}>
+          <Text className={`${Styles.status} my-3`} dontWrap={false}>
             {weatherCondition?.weatherDesc?.[0]?.value}
           </Text>
         </Col>
