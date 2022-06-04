@@ -60,7 +60,7 @@ const CityWeather = ({ match }) => {
             <>
               <Row>
                 <div className="col-12 mt-5">
-                  <Text style={`${Styles.foundedCity}`} dontWrap={false}>
+                  <Text style={Styles.foundedCity} dontWrap={false}>
                     {cityFound}
                   </Text>
                 </div>
@@ -123,7 +123,7 @@ export default CityWeather;
 
 const Styles = {
   foundedCity: {
-    fontSize: "var(--fs-20)",
+    fontSize: "var(--fs-26)",
     fontFamily: "var(--ff-poppinsSemiBold)",
     color: "var(--clr-secondary)",
   },
