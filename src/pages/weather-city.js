@@ -60,7 +60,7 @@ const CityWeather = ({ match }) => {
             <>
               <Row>
                 <div className="col-12 mt-5">
-                  <Text className={`${Styles.foundedCity}`} dontWrap={false}>
+                  <Text style={`${Styles.foundedCity}`} dontWrap={false}>
                     {cityFound}
                   </Text>
                 </div>
