@@ -33,7 +33,6 @@ const CityWeather = ({ match }) => {
 
     WeatherServices.getLocalWeather(requestLocation, num_of_days, show_map)
       .then((res) => {
-        console.log(res)
         if ("error" in res?.data) {
           setError(res?.data?.error?.[0]?.msg);
           return;
